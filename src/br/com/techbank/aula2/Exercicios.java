@@ -13,20 +13,33 @@ public class Exercicios {
         exercicio6();
     }
 
+    public static void validaInputInt(Scanner sc){
+        if(!sc.hasNextInt()){
+            System.out.println("Você precisa informar um número do tipo inteiro.");
+            System.exit(1);
+        }
+    }
+
+    public static void validaInputDouble(Scanner sc){
+        if(!sc.hasNextDouble()){
+            System.out.println("Você precisa informar um número do tipo double.");
+            System.exit(1);
+        }
+    }
+
     public static void exercicio1(){
         //Escreva um algoritmo que leia um número inteiro e diga se ele é par ou ímpar.
 
         Scanner sc = new Scanner(System.in);
         System.out.print("Digite um número inteiro: ");
 
-        if(!sc.hasNextInt()){
-            System.out.println("Você precisa informar um número do tipo inteiro.");
-            System.exit(1);
-        }
+        validaInputInt(sc);
 
         int a = sc.nextInt();
 
-        String mensagem = a%2==0 ? "O número "+a+" é par." : "O número "+a+" é ímpar.";
+        String mensagem = a%2==0 ?
+                  String.format("O número %d é par.", a)
+                : String.format("O número %d é ímpar.", a);
 
         System.out.println(mensagem);
         sc.close();
@@ -44,10 +57,7 @@ public class Exercicios {
         Scanner sc = new Scanner(System.in);
         System.out.print("Digite a idade do nadador: ");
 
-        if(!sc.hasNextInt()){
-            System.out.println("Você precisa informar um número do tipo inteiro.");
-            System.exit(1);
-        }
+        validaInputInt(sc);
 
         int idade = sc.nextInt();
 
@@ -75,17 +85,11 @@ public class Exercicios {
         Scanner sc = new Scanner(System.in);
 
         System.out.print("Digite um número inteiro: ");
-        if(!sc.hasNextInt()){
-            System.out.println("Você precisa informar um número do tipo inteiro.");
-            System.exit(1);
-        }
+        validaInputInt(sc);
         int a = sc.nextInt();
 
         System.out.print("Digite outro número inteiro: ");
-        if(!sc.hasNextInt()){
-            System.out.println("Você precisa informar um número do tipo inteiro.");
-            System.exit(1);
-        }
+        validaInputInt(sc);
         int b = sc.nextInt();
 
         if(a<b){
@@ -114,10 +118,7 @@ public class Exercicios {
 
         for(int i=0; i<10;i++){
             System.out.print("Digite um número inteiro: ");
-            if(!sc.hasNextInt()){
-                System.out.println("Você precisa informar um número do tipo inteiro.");
-                System.exit(1);
-            }
+            validaInputInt(sc);
             int a = sc.nextInt();
 
             if(i==0 || a > maior){
@@ -128,11 +129,11 @@ public class Exercicios {
                 menor = a;
             }
 
-            soma = soma + a;
+            soma += a;
             System.out.println("Número armazenado!");
         }
 
-        double media = soma/10;
+        double media = soma/10.0;
 
         System.out.println("O menor valor é "+menor);
         System.out.println("O maior valor é "+maior);
@@ -156,11 +157,7 @@ public class Exercicios {
                 "3) Divisão \n" +
                 "4) Multiplicação ");
 
-        if(!sc.hasNextInt()){
-            System.out.println("Você precisa informar uma operação válida.");
-            System.exit(1);
-        }
-
+        validaInputInt(sc);
         int operacao = sc.nextInt();
 
         if(operacao!=1 && operacao!=2 && operacao!=3 && operacao!=4){
@@ -168,21 +165,15 @@ public class Exercicios {
             System.exit(1);
         }
 
-        System.out.print("Digite um número inteiro: ");
-        if(!sc.hasNextInt()){
-            System.out.println("Você precisa informar um número do tipo inteiro.");
-            System.exit(1);
-        }
-        int a = sc.nextInt();
+        System.out.print("Digite um número: ");
+        validaInputDouble(sc);
+        double a = sc.nextDouble();
 
-        System.out.print("Digite um número inteiro: ");
-        if(!sc.hasNextInt()){
-            System.out.println("Você precisa informar um número do tipo inteiro.");
-            System.exit(1);
-        }
-        int b = sc.nextInt();
+        System.out.print("Digite outro número: ");
+        validaInputDouble(sc);
+        double b = sc.nextDouble();
 
-        int resultado = 0;
+        double resultado = 0;
 
         if(operacao == 1) {
             resultado = a+b;
@@ -214,6 +205,7 @@ public class Exercicios {
 
         String pedra = "pe", papel = "pa", tesoura = "t";
         String jogo = sc.next();
+        validaJogo(jogo);
 
         System.out.println("Jokempô!! Jogador 2, escolha sua jogada: \n" +
                 "pe) Pedra \n" +
@@ -221,17 +213,11 @@ public class Exercicios {
                 "t) Tesoura");
 
         String jogo2 = sc.next();
+        validaJogo(jogo2);
 
-        if(!jogo.equals(pedra) && !jogo.equals(papel) && !jogo.equals(tesoura)){
-            System.out.println("Não é um jogo válido.");
-            System.exit(1);
-        } else if (!jogo2.equals(pedra) && !jogo2.equals(papel) && !jogo2.equals(tesoura)){
-            System.out.println("Não é um jogo válido.");
-            System.exit(1);
-        } else {
-            System.out.println("Jogador 1 jogou: "+jogo);
-            System.out.println("Jogador 2 jogou: "+jogo2);
-        }
+        System.out.println("Jogador 1 jogou: "+jogo);
+        System.out.println("Jogador 2 jogou: "+jogo2);
+
 
         if(jogo.equals(jogo2)){
             System.out.println("Houve empate.");
@@ -245,4 +231,12 @@ public class Exercicios {
 
         sc.close();
     }
+
+    public static void validaJogo(String jogo){
+        if(!jogo.equals("pe") && !jogo.equals("pa") && !jogo.equals("t")){
+            System.out.println("Não é um jogo válido.");
+            System.exit(1);
+        }
+    }
+
 }

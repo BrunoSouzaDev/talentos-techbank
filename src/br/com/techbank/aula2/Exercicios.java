@@ -164,7 +164,7 @@ public class Exercicios {
         int operacao = sc.nextInt();
 
         if(operacao!=1 && operacao!=2 && operacao!=3 && operacao!=4){
-            System.out.println("Você precisa informar um número válido.");
+            System.out.println("Você precisa informar uma operação válida..");
             System.exit(1);
         }
 

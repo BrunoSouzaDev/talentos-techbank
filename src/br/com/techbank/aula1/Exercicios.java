@@ -2,7 +2,7 @@ package br.com.techbank.aula1;
 
 import java.util.Scanner;
 
-public class exercicios {
+public class Exercicios {
 
     public static void main(String[] args) {
         //exercicio1();

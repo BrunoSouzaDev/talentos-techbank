@@ -4,15 +4,6 @@ import java.util.Scanner;
 
 public class Exercicios {
 
-    public static void main(String[] args) {
-        //exercicio1();
-        //exercicio2();
-        //exercicio3();
-        //exercicio4();
-        //exercicio5();
-        exercicio6();
-    }
-
     public static void validaInputInt(Scanner sc){
         if(!sc.hasNextInt()){
             System.out.println("Você precisa informar um número do tipo inteiro.");
@@ -237,6 +228,15 @@ public class Exercicios {
             System.out.println("Não é um jogo válido.");
             System.exit(1);
         }
+    }
+
+    public static void main(String[] args) {
+        //exercicio1();
+        //exercicio2();
+        //exercicio3();
+        //exercicio4();
+        //exercicio5();
+        exercicio6();
     }
 
 }

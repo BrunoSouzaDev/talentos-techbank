@@ -4,13 +4,6 @@ import java.util.Scanner;
 
 public class Exercicios {
 
-    public static void main(String[] args) {
-        //exercicio1();
-        //exercicio2();
-        //exercicio3();
-        exercicio4();
-    }
-
     public static void exercicio1(){
         int y = 99;
         int z = 11;
@@ -85,5 +78,12 @@ public class Exercicios {
 
         sc.close();
 
+    }
+
+    public static void main(String[] args) {
+        //exercicio1();
+        //exercicio2();
+        //exercicio3();
+        exercicio4();
     }
 }

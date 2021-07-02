@@ -66,7 +66,7 @@ public class Exercicios {
                 fatorial *= a;
                 a -=1;
             }
-        } else {
+        } else if(a<0) {
             System.out.println("Você deve digitar um número positivo. Fechando o programa.");
             System.exit(1);
         }

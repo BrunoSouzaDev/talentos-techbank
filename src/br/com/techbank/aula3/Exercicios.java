@@ -11,12 +11,6 @@ public class Exercicios {
         }
     }
 
-    public static void validaInputDouble(Scanner sc){
-        if(!sc.hasNextDouble()){
-            System.out.println("Você precisa informar um número do tipo double.");
-            System.exit(1);
-        }
-    }
 
     public static void exercicio1(){
         /*Construa um algoritmo que leia 10 valores inteiros e positivos e:
@@ -64,11 +58,11 @@ public class Exercicios {
         System.out.print("Digite um número inteiro e POSITIVO: ");
         validaInputInt(sc);
         int a = sc.nextInt();
-        int fatorial = 1;
+        double fatorial = 1;
         sc.close();
 
         if(a>0){
-            while(a != 1){
+            while(a >= 1){
                 fatorial *= a;
                 a -=1;
             }
@@ -77,7 +71,7 @@ public class Exercicios {
             System.exit(1);
         }
 
-        System.out.println(String.format("O fatorial deste número é %d", fatorial));
+        System.out.println(String.format("O fatorial deste número é %.0f", fatorial));
 
     }
 

@@ -105,6 +105,27 @@ public class Exercicios {
         Integer max2 = integerList.stream().mapToInt(V -> V).max().getAsInt();
     }
 
+
+    public static void validaPalavra(String palavra){
+        if (palavra.contains(" ") || palavra.matches(".*\\d.*")) {
+            System.out.println("Você digitou uma palavra inválida. Comece de novo.");
+            System.exit(1);
+        }
+    }
+
+    public static void validaQtLetrasDistintas(Long count){
+        if(count > 10) {
+            System.out.println("Há letras distintas demais. Comece de novo.");
+            System.exit(1);
+        }
+    }
+
+    public static List<String> breakPalavraForca(String palavra){
+        String[] palavraSplitada = palavra.split("");
+        List<String> palavraSplitadaList = Arrays.asList(palavraSplitada);
+        return palavraSplitadaList;
+    }
+
     public static void exercicio5(){
         /*
         Escreva um algoritmo que simula um jogo da forca simples.
@@ -113,21 +134,32 @@ public class Exercicios {
         o numero de tentativas vai diminuindo. Caso o numero de tentativas chegue a 0 o usuário perde.
          */
 
-        List<Integer> integerList = new ArrayList<>();
+        List<String> letrasChutadas = new ArrayList<>();
         Long acertos = 0l;
 
         Scanner in = new Scanner(System.in);
-        List<String> palavra = new ArrayList<>(Arrays.asList("B","A","N","A","N","A"));
-        Long letrasDistintas = palavra.stream().distinct().count();
+        System.out.println("Diga uma palavra para ser adivinhada na forca:");
+        String palavra = in.next();
+        validaPalavra(palavra);
 
-        for(int i=0; i<10; i++){
+        List<String> palavraQuebrada = breakPalavraForca(palavra.toUpperCase());
+        Long letrasDistintas = palavraQuebrada.stream().distinct().count();
+        validaQtLetrasDistintas(letrasDistintas);
+
+        for(int i=0; i<10; i++) {
             System.out.println("Chute uma letra:");
             String chute = in.next();
-            if(palavra.contains(chute.toUpperCase())){
+
+            if(letrasChutadas.contains(chute)){
+                System.out.println("Você já chutou essa letra. Chute outra.");
+                i--;
+            } else if (palavraQuebrada.contains(chute.toUpperCase())) {
                 System.out.println("Você acertou!");
+                letrasChutadas.add(chute);
                 acertos++;
-            }else{
+            } else {
                 System.out.println("Você errou!");
+                letrasChutadas.add(chute);
             }
 
             if(acertos == letrasDistintas){
@@ -136,7 +168,7 @@ public class Exercicios {
         }
 
         if(acertos >= letrasDistintas){
-            System.out.println(String.format("Você venceu a forca! A palavra era %s.", palavra.toString()));
+            System.out.println(String.format("Você venceu a forca! A palavra era %s.", palavra));
         }else{
             System.out.println("Você perdeu!");
         }
@@ -145,6 +177,7 @@ public class Exercicios {
     public static void exercicio5_Anderson(){
         String palavra = "banana";
         String[] palavraSplitada = palavra.split("");
+        List<String> palavraSplitadaList = Arrays.asList(palavraSplitada);
         char[] palavraSplitada_char = palavra.toCharArray();
 
         System.out.println(Arrays.toString(palavraSplitada));

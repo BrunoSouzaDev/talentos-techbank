@@ -1,6 +1,5 @@
-package br.com.techbank.s2.aula7;
+package br.com.techbank.semana_2.aula_7;
 
-import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

@@ -1,4 +1,4 @@
-package br.com.techbank.s1.aula6;
+package br.com.techbank.semana_1.aula_6;
 
 import java.util.Arrays;
 

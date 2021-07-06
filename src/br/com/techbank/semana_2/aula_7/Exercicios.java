@@ -1,4 +1,4 @@
-package br.com.techbank.s2.aula7;
+package br.com.techbank.semana_2.aula_7;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -147,6 +147,8 @@ public class Exercicios {
         String[] palavraSplitada = palavra.split("");
         char[] palavraSplitada_char = palavra.toCharArray();
 
+        System.out.println(Arrays.toString(palavraSplitada));
+
         Scanner in = new Scanner(System.in);
         in.next().charAt(0);
     }
@@ -157,5 +159,6 @@ public class Exercicios {
         //exercicio3();
         //exercicio4();
         exercicio5();
+        //exercicio5_Anderson();
     }
 }

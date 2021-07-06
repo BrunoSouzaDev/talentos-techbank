@@ -1,4 +1,4 @@
-package br.com.techbank.s1_aula2;
+package br.com.techbank.s1.aula2;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package br.com.techbank.s1_aula4;
+package br.com.techbank.s1.aula4;
 
 import java.util.Scanner;
 

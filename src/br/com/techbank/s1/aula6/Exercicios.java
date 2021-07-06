@@ -1,4 +1,4 @@
-package br.com.techbank.s1_aula6;
+package br.com.techbank.s1.aula6;
 
 public class Exercicios {
 

@@ -107,7 +107,7 @@ public class Exercicios {
 
 
     public static void validaPalavra(String palavra){
-        if (palavra.contains(" ") || palavra.matches(".*\\d.*")) {
+        if (palavra.isEmpty() || palavra.contains(" ") || palavra.matches(".*\\d.*")) {
             System.out.println("Você digitou uma palavra inválida. Comece de novo.");
             System.exit(1);
         }
@@ -170,7 +170,7 @@ public class Exercicios {
         if(acertos >= letrasDistintas){
             System.out.println(String.format("Você venceu a forca! A palavra era %s.", palavra));
         }else{
-            System.out.println("Você perdeu!");
+            System.out.println(String.format("Você perdeu a forca! A palavra era %s.", palavra));
         }
     }
 

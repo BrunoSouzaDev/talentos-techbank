@@ -137,7 +137,7 @@ public class Exercicios {
         List<String> letrasChutadas = new ArrayList<>();
         Long acertos = 0l;
 
-        Scanner in = new Scanner(System.in);
+        Scanner in = new Scanner(System.in).useDelimiter("\n");
         System.out.println("Diga uma palavra para ser adivinhada na forca:");
         String palavra = in.next();
         validaPalavra(palavra);
@@ -146,19 +146,19 @@ public class Exercicios {
         Long letrasDistintas = palavraQuebrada.stream().distinct().count();
         validaQtLetrasDistintas(letrasDistintas);
 
-        for(int i=0; i<10; i++) {
+        for(int i=10; i>0; i--) {
             System.out.println("Chute uma letra:");
             String chute = in.next();
 
             if(letrasChutadas.contains(chute)){
                 System.out.println("Você já chutou essa letra. Chute outra.");
-                i--;
+                i++;
             } else if (palavraQuebrada.contains(chute.toUpperCase())) {
                 System.out.println("Você acertou!");
                 letrasChutadas.add(chute);
-                acertos++;
+                acertos++; i++;
             } else {
-                System.out.println("Você errou!");
+                System.out.println(String.format("Você errou! Vocë tem %d chutes.", i-1));
                 letrasChutadas.add(chute);
             }
 
@@ -167,7 +167,7 @@ public class Exercicios {
             }
         }
 
-        if(acertos >= letrasDistintas){
+        if(acertos == letrasDistintas){
             System.out.println(String.format("Você venceu a forca! A palavra era %s.", palavra));
         }else{
             System.out.println(String.format("Você perdeu a forca! A palavra era %s.", palavra));
@@ -179,11 +179,44 @@ public class Exercicios {
         String[] palavraSplitada = palavra.split("");
         List<String> palavraSplitadaList = Arrays.asList(palavraSplitada);
         char[] palavraSplitada_char = palavra.toCharArray();
+        //in.next().charAt(0);
 
         System.out.println(Arrays.toString(palavraSplitada));
 
+        /* ------------------------- */
         Scanner in = new Scanner(System.in);
-        in.next().charAt(0);
+        System.out.println("Jogador 1, escolha a palavra que deverá ser adivinhada!");
+        String palavraParaSerAdivinhadaInput = in.next();
+
+        System.out.println("Jogador 1, de uma dica!");
+        String dicaDaPalavraParaSerAdivinhada = in.next();
+
+        palavraParaSerAdivinhadaInput = palavraParaSerAdivinhadaInput.trim();
+
+        int maximoDeChutes = 10;
+        char[] palavraParaSerAdivinhada = palavraParaSerAdivinhadaInput.toCharArray();
+        Boolean[] letrasAcertadas = new Boolean[palavraParaSerAdivinhada.length];
+
+        System.out.println("Agora é a vez do jogador 2...");
+        while(maximoDeChutes > 0 || Arrays.asList(letrasAcertadas).contains(false)) {
+            System.out.println("Jogador 2, chute uma letra!");
+            char chute = in.next().charAt(0);
+
+            boolean errouOChute = true;
+            for (int i = 0; i < palavraParaSerAdivinhada.length; i++) {
+                if(chute == palavraParaSerAdivinhada[i]){
+                    letrasAcertadas[i] = true;
+                    errouOChute = false;
+                }
+            }
+
+            if(errouOChute) {
+                maximoDeChutes--;
+                System.out.println(String.format("Agora você só tem %s chutes", maximoDeChutes));
+            }
+        }
+        System.out.println("");
+        in.close();
     }
 
     public static void main(String[] args) {

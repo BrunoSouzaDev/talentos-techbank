@@ -41,7 +41,7 @@ public class Desafio {
             }
         }
 
-        System.out.println(String.format("O número mais próximo de zero é %d.", numeroProxZero));
+        System.out.printf("O número mais próximo de zero é %d.", numeroProxZero);
     }
 
 

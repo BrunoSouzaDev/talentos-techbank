@@ -137,7 +137,7 @@ public class Exercicios {
         List<String> letrasChutadas = new ArrayList<>();
         Long acertos = 0l;
 
-        Scanner in = new Scanner(System.in).useDelimiter("\n");
+        Scanner in = new Scanner(System.in);
         System.out.println("Diga uma palavra para ser adivinhada na forca:");
         String palavra = in.next();
         validaPalavra(palavra);
@@ -181,10 +181,14 @@ public class Exercicios {
         char[] palavraSplitada_char = palavra.toCharArray();
         //in.next().charAt(0);
 
+        //método fill array
+        boolean[] arrayTeste = new boolean[10];
+        Arrays.fill(arrayTeste, false);
+
         System.out.println(Arrays.toString(palavraSplitada));
 
         /* ------------------------- */
-        Scanner in = new Scanner(System.in);
+        Scanner in = new Scanner(System.in).useDelimiter("\n");
         System.out.println("Jogador 1, escolha a palavra que deverá ser adivinhada!");
         String palavraParaSerAdivinhadaInput = in.next();
 
@@ -195,7 +199,9 @@ public class Exercicios {
 
         int maximoDeChutes = 10;
         char[] palavraParaSerAdivinhada = palavraParaSerAdivinhadaInput.toCharArray();
-        Boolean[] letrasAcertadas = new Boolean[palavraParaSerAdivinhada.length];
+
+        //método fill list
+        List<Boolean> letrasAcertadas = new ArrayList<>(Collections.nCopies(palavraParaSerAdivinhada.length, false));
 
         System.out.println("Agora é a vez do jogador 2...");
         while(maximoDeChutes > 0 || Arrays.asList(letrasAcertadas).contains(false)) {
@@ -205,7 +211,7 @@ public class Exercicios {
             boolean errouOChute = true;
             for (int i = 0; i < palavraParaSerAdivinhada.length; i++) {
                 if(chute == palavraParaSerAdivinhada[i]){
-                    letrasAcertadas[i] = true;
+                    letrasAcertadas.set(0, true);
                     errouOChute = false;
                 }
             }

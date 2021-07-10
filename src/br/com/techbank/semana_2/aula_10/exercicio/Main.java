@@ -15,9 +15,7 @@ public class Main {
         int opcao = in.nextInt();
 
         do {
-            menu(opcao, in, agenda);
-            textoMenu();
-            opcao = in.nextInt();
+            opcao = menu(opcao, in, agenda);
         } while(opcao != 6);
 
         in.close();
@@ -36,7 +34,7 @@ public class Main {
                 "6) Sair");
     }
 
-    public static void menu(int opcao, Scanner in, Agenda agenda){
+    public static int menu(int opcao, Scanner in, Agenda agenda){
 
         switch(opcao){
             case 1:
@@ -49,7 +47,7 @@ public class Main {
                 mostrarIdades(agenda);
                 break;
             case 4:
-                removercontato(in, agenda);
+                removerContato(in, agenda);
                 break;
             case 5:
                 agenda.imprimirAgenda();
@@ -59,6 +57,10 @@ public class Main {
                 System.exit(1);
                 break;
         }
+
+        textoMenu();
+        validaInputInt(in);
+        return in.nextInt();
     }
 
     public static void adicionarContatos(Scanner in, Agenda agenda){
@@ -100,7 +102,7 @@ public class Main {
         agenda.buscarPessoa(nome);
     }
 
-    public static void removercontato(Scanner in, Agenda agenda){
+    public static void removerContato(Scanner in, Agenda agenda){
         System.out.println("\nAgora, vamos remover um contato. Digite o nome do contato a ser removido:");
         String nome = in.next();
         agenda.removerPessoa(nome);

@@ -23,7 +23,7 @@ public class Main {
         System.exit(0);
     }
 
-    public static void textoMenu(){
+    private static void textoMenu(){
         System.out.println("\n");
         System.out.println("O que deseja fazer? Selecione uma opção:");
         System.out.println("1) Adicionar contatos\n"+
@@ -34,7 +34,7 @@ public class Main {
                 "6) Sair");
     }
 
-    public static int menu(int opcao, Scanner in, Agenda agenda){
+    private static int menu(int opcao, Scanner in, Agenda agenda){
 
         switch(opcao){
             case 1:
@@ -63,7 +63,7 @@ public class Main {
         return in.nextInt();
     }
 
-    public static void adicionarContatos(Scanner in, Agenda agenda){
+    private static void adicionarContatos(Scanner in, Agenda agenda){
         System.out.println("Quantos contatos deseja adicionar?");
         validaInputInt(in);
         Integer qtContatos;
@@ -87,7 +87,7 @@ public class Main {
         }
     }
 
-    public static void mostrarIdades(Agenda agenda){
+    private static void mostrarIdades(Agenda agenda){
         System.out.println("\nVamos ver as idades dos contatos:");
         if(!agenda.getContatos().isEmpty()) {
             agenda.getContatos().forEach(Pessoa::mostrarIdade);
@@ -96,13 +96,13 @@ public class Main {
         }
     }
 
-    public static void buscarContato(Scanner in, Agenda agenda){
+    private static void buscarContato(Scanner in, Agenda agenda){
         System.out.println("\nAgora, vamos buscar um contato. Digite um nome para ser procurado: ");
         String nome = in.next();
         agenda.buscarPessoa(nome);
     }
 
-    public static void removerContato(Scanner in, Agenda agenda){
+    private static void removerContato(Scanner in, Agenda agenda){
         System.out.println("\nAgora, vamos remover um contato. Digite o nome do contato a ser removido:");
         String nome = in.next();
         agenda.removerPessoa(nome);

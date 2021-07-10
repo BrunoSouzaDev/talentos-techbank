@@ -1,7 +1,5 @@
 package br.com.techbank.semana_2.aula_9;
 
-import sun.tools.jstat.Operator;
-
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;

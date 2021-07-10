@@ -1,6 +1,6 @@
 package br.com.techbank.semana_2.aula_10;
 
-public class OrientacaoaObjetos {
+public class POO {
 
     public static void main(String[] args) {
         Caneta minhaCaneta = new CanetaBic();

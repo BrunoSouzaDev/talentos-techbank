@@ -1,4 +1,4 @@
-package br.com.techbank.semana_2.aula_10.exercicios;
+package br.com.techbank.semana_2.aula_10.exercicio;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,10 +6,14 @@ import java.util.Optional;
 
 public class Agenda {
 
-    private List<Pessoa> contatos = new ArrayList<>();
+    private List<Pessoa> contatos;
 
-    public Integer buscaPessoa(String nome){
-        Pessoa pessoa = buscaObjetoPessoa(nome);
+    Agenda(){
+        contatos = new ArrayList<>();
+    }
+
+    public Integer buscarPessoa(String nome){
+        Pessoa pessoa = buscarObjetoPessoa(nome);
 
         if(pessoa != null){
             System.out.printf("\nlog: Pessoa de nome %s encontrada! ", nome);
@@ -20,13 +24,13 @@ public class Agenda {
         }
     }
 
-    private Pessoa buscaObjetoPessoa(String nome){
+    private Pessoa buscarObjetoPessoa(String nome){
         Optional<Pessoa> pessoa = contatos.stream().filter(p -> p.getNome().equals(nome)).findFirst();
 
         return pessoa.orElse(null);
     }
 
-    public void armazenaPessoa(String nome, Integer anoNasc, Float altura){
+    public void armazenarPessoa(String nome, Integer anoNasc, Float altura){
         Pessoa pessoa = new Pessoa(nome, anoNasc, altura);
 
         if(contatos.size() > 10){
@@ -37,15 +41,17 @@ public class Agenda {
         }
     }
 
-    public void removePessoa(String nome){
-        Pessoa pessoa = buscaObjetoPessoa(nome);
+    public void removerPessoa(String nome){
+        Pessoa pessoa = buscarObjetoPessoa(nome);
         if(pessoa != null){
             contatos.remove(pessoa);
             System.out.printf("\nlog: Pessoa de nome %s removida com sucesso!", nome);
+        } else {
+            System.out.println("Pessoa não encontrada na agenda!");
         }
     }
 
-    public void imprimeAgenda(){
+    public void imprimirAgenda(){
         System.out.printf("\nSua lista de contatos atual com %d contato(s): \n%s\n", contatos.size(), contatos.toString());
     }
 

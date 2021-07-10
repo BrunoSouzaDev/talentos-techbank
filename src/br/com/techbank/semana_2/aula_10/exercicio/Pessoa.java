@@ -1,5 +1,6 @@
-package br.com.techbank.semana_2.aula_10.exercicios;
+package br.com.techbank.semana_2.aula_10.exercicio;
 
+import java.security.InvalidParameterException;
 import java.time.Year;
 
 public class Pessoa {
@@ -8,10 +9,10 @@ public class Pessoa {
     private Integer anoNascimento;
     private Float altura;
 
-    public Pessoa(){
-    }
-
     public Pessoa(String nome, Integer anoNascimento, Float altura) {
+        if(nome == null || anoNascimento == null || altura == null){
+            throw new InvalidParameterException("Informe dados diferentes de nulo.");
+        }
         this.nome = nome;
         this.anoNascimento = anoNascimento;
         this.altura = altura;
@@ -34,5 +35,9 @@ public class Pessoa {
         int ano = Year.now().getValue();
         Integer idade = ano - anoNascimento;
         System.out.printf("A idade de %s em %d é %d ano(s).\n", nome, ano, idade);
+    }
+
+    public void imprimePessoa(){
+        System.out.println(this);
     }
 }

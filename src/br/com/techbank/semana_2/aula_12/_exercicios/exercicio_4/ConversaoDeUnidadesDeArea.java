@@ -1,4 +1,4 @@
-package br.com.techbank.semana_2.aula_12.estaticos.exercicio;
+package br.com.techbank.semana_2.aula_12._exercicios.exercicio_4;
 
 public class ConversaoDeUnidadesDeArea {
 

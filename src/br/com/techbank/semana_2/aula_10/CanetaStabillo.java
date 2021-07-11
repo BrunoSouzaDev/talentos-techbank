@@ -1,7 +1,6 @@
 package br.com.techbank.semana_2.aula_10;
 
 import java.time.LocalDate;
-import java.util.Calendar;
 
 public class CanetaStabillo extends Caneta{
 

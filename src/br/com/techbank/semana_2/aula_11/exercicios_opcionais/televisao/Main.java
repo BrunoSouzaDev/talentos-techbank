@@ -1,10 +1,8 @@
 package br.com.techbank.semana_2.aula_11.exercicios_opcionais.televisao;
 
-import br.com.techbank.semana_2.aula_10.exercicio.Agenda;
-
 import java.util.Scanner;
 
-import static br.com.techbank.semana_2.aula_10.exercicio.Validator.validaInputInt;
+import static br.com.techbank.semana_2.aula_11.exercicios_opcionais.Validator.*;
 
 public class Main {
     public static void main(String[] args) {

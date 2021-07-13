@@ -2,12 +2,12 @@ package br.com.techbank.semana_2.aula_12._exercicios.exercicio_6;
 
 public class ConversaoUnidadesDeTempo {
 
-    private static double MINUTO_PARA_SEGUNDO = 60;
-    private static double HORA_PARA_MINUTO = 60;
-    private static double DIA_PARA_HORA = 24;
-    private static double SEMANA_PARA_DIA = 7;
-    private static double MES_PARA_DIAS = 30;
-    private static double ANO_PARA_DIA = 365.25;
+    private final static double MINUTO_PARA_SEGUNDO = 60;
+    private final static double HORA_PARA_MINUTO = 60;
+    private final static double DIA_PARA_HORA = 24;
+    private final static double SEMANA_PARA_DIA = 7;
+    private final static double MES_PARA_DIAS = 30;
+    private final static double ANO_PARA_DIA = 365.25;
 
     public static double getMinutoParaSegundo(double minutos){
         return minutos*MINUTO_PARA_SEGUNDO;
